@@ -38,7 +38,7 @@ Local generated files belong in `outputs/`, which is ignored by git.
 1. Open a new session in this repository and name the topic and desired artifact.
 2. Let `$generate-learning-reference` create the topic brief and route to a document or image workflow.
 3. Review the artifact; images must pass `$review-learning-wallpaper` before acceptance.
-4. Save accepted wallpapers to Apple Photos manually when desired.
+4. Publish accepted wallpapers to the configured Apple Photos Shared Album when desired.
 5. Commit prompt and review improvements so both Macs share the reusable recipe.
 
 ## Fast starts
@@ -60,6 +60,25 @@ Both:
 The discoverable workflows live under `.agents/skills/` and follow the Codex `SKILL.md` convention. A fresh session in this repository can invoke them explicitly or match them from the request.
 
 `AGENTS.md` supplies defaults so a fresh session can proceed without asking routine display, audience, style, or storage questions.
+
+## Publishing to Apple Photos
+
+The repository includes a macOS helper that passes an accepted PNG to a Shortcuts workflow. The default Shortcut name is `Save to Photos`; configure that Shortcut to receive Images and save the Shortcut Input to the intended Photos Shared Album.
+
+After the image has passed review and has been copied to its final output path, run:
+
+```bash
+scripts/publish-to-photos.sh outputs/<topic-slug>.png
+```
+
+The helper validates that the file exists, is a PNG, and that the Shortcut is available before invoking it. To use another Shortcut name:
+
+```bash
+LEARNING_WALLPAPER_SHORTCUT_NAME="My Photos Shortcut" \
+  scripts/publish-to-photos.sh outputs/<topic-slug>.png
+```
+
+This is intentionally an explicit post-review step so draft images are not published accidentally. Each Mac that runs the helper needs the same Shortcut and access to the Shared Album.
 
 ## Development environment
 
