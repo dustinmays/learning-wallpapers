@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate Learning Wallpaper"
+  short_description: "Turn a topic into a clear educational wallpaper"
+  default_prompt: "Use $generate-learning-wallpaper to create a desktop learning wallpaper from my topic and facts."

@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Generated wallpapers and local work products
+/outputs/
+
+# Local editor files
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Learning Wallpaper"
+  short_description: "Check wallpaper facts, text, and desktop readability"
+  default_prompt: "Use $review-learning-wallpaper to inspect this wallpaper for factual and text errors."
