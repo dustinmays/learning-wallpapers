@@ -18,6 +18,7 @@ Create a readable educational wallpaper from user-supplied facts and constraints
 7. Save the working image as `outputs/<topic-slug>-draft-1.png` and inspect the actual render.
 8. Invoke `$review-learning-wallpaper`. If it finds blocking issues, make the smallest targeted edit and review again.
 9. Save an accepted image as `outputs/<topic-slug>.png` and record the result as `reviews/<topic-slug>.md` using `reviews/_template.md`.
+10. When the user asks to add the accepted wallpaper to Apple Photos, treat that as the final handoff step. On macOS, first discover the locally available Shortcuts with `shortcuts list`, then run the matching upload shortcut (currently `Save to Photos`) with the accepted image as input. The shortcut is workstation-local: if Shortcuts is unavailable, the named shortcut is absent, or the current machine is not a configured Mac workstation, explain that the optional upload cannot run here and still deliver the saved output path. Do not assume this setup exists, and do not upload without the user's explicit request.
 
 ## Default image profile
 
