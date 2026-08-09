@@ -1,0 +1,22 @@
+[tools]
+python = "3.13.14"
+
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[tasks.setup]
+description = "Install development and validation dependencies"
+run = "uv pip install --python \"$VIRTUAL_ENV/bin/python\" -r requirements-dev.txt"
+
+[tasks.validate]
+description = "Validate all repository-local skills"
+depends = ["setup"]
+run = '''
+validator="${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py"
+
+for skill in .agents/skills/*; do
+  if [ -f "$skill/SKILL.md" ]; then
+    python "$validator" "$skill"
+  fi
+done
+'''

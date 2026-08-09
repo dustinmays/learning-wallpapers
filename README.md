@@ -61,6 +61,17 @@ The discoverable workflows live under `.agents/skills/` and follow the Codex `SK
 
 `AGENTS.md` supplies defaults so a fresh session can proceed without asking routine display, audience, style, or storage questions.
 
+## Development environment
+
+The repository uses `mise` to pin Python and create an isolated `.venv` for skill validation.
+
+```bash
+mise install
+mise run validate
+```
+
+`mise run validate` installs the small development dependency set and validates every skill under `.agents/skills/`.
+
 ## Syncing the toolkit
 
 Use git/GitHub to sync this repository between Macs. Use Apple Photos/iCloud only for the generated wallpapers. Keeping those concerns separate prevents large binary files from bloating git history.
