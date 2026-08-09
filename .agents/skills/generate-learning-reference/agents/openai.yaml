@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate Learning Reference"
+  short_description: "Create a reviewed learning image or document"
+  default_prompt: "Use $generate-learning-reference to create a reviewed learning reference from my topic."

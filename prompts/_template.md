@@ -1,5 +1,10 @@
 # Topic title
 
+## Artifact
+
+- Type: Markdown reference | wallpaper | PDF | DOCX | both
+- Output filename:
+
 ## Learning goal
 
 What should become familiar through repeated background exposure?
@@ -7,7 +12,7 @@ What should become familiar through repeated background exposure?
 ## Source facts
 
 - Add only facts that should appear or guide the image.
-- Include source links or citations when useful.
+- Include authoritative source links or citations.
 
 ## Exact text
 
@@ -16,6 +21,8 @@ List labels, numbers, formulas, commands, or phrases that must be reproduced exa
 ## Visual structure
 
 Describe the comparison, sequence, hierarchy, map, or other layout that best teaches the topic.
+
+For a document, describe the section hierarchy, comparison tables, examples, or decision guide instead.
 
 ## Display
 

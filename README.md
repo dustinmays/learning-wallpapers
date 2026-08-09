@@ -1,6 +1,6 @@
 # Learning Wallpapers
 
-A small, versioned toolkit for making educational reference images that can live as rotating Mac desktop wallpapers.
+A small, versioned toolkit for making educational reference documents and images, including rotating Mac desktop wallpapers.
 
 This repository stores the reusable parts of the workflow—agent instructions, skills, topic prompts, and optional helper scripts. It does **not** store generated wallpapers. Finished images are added manually to a shared Apple Photos album, where iCloud handles syncing between Macs.
 
@@ -14,38 +14,52 @@ If automated API generation becomes worthwhile later, provider-specific scripts 
 
 ```text
 .
+├── .agents/
+│   └── skills/
+│       ├── generate-learning-reference/
+│       ├── generate-learning-wallpaper/
+│       └── review-learning-wallpaper/
 ├── agents/
 │   └── learning-wallpaper-designer.md
 ├── prompts/
 │   ├── README.md
 │   └── _template.md
+├── reviews/
+│   └── _template.md
 ├── scripts/
 │   └── README.md
-└── skills/
-    ├── generate-learning-wallpaper/
-    │   ├── SKILL.md
-    │   └── agents/openai.yaml
-    └── review-learning-wallpaper/
-        ├── SKILL.md
-        └── agents/openai.yaml
+└── outputs/ (ignored)
 ```
 
 Local generated files belong in `outputs/`, which is ignored by git.
 
 ## Basic workflow
 
-1. Copy `prompts/_template.md` to a descriptive topic filename.
-2. Add the facts, exact wording, layout needs, and visual direction worth preserving.
-3. Ask an OpenAI agent with image generation to use `generate-learning-wallpaper` and the topic prompt.
-4. Run `review-learning-wallpaper` against the rendered image.
-5. Save an accepted image to Apple Photos manually and add it to the shared wallpaper album.
-6. Commit the prompt improvements so both Macs share the reusable recipe.
+1. Open a new session in this repository and name the topic and desired artifact.
+2. Let `$generate-learning-reference` create the topic brief and route to a document or image workflow.
+3. Review the artifact; images must pass `$review-learning-wallpaper` before acceptance.
+4. Save accepted wallpapers to Apple Photos manually when desired.
+5. Commit prompt and review improvements so both Macs share the reusable recipe.
+
+## Fast starts
+
+Reference image:
+
+> Create a learning wallpaper comparing `<A>`, `<B>`, and `<C>`. Use `$generate-learning-reference` and the repository defaults. Research primary sources, save the prompt, generate the image, review the rendered text, and correct blocking issues. Do not use visual references unless I provide one.
+
+Reference document:
+
+> Create a concise reference document about `<topic>` for `<audience>`. Use `$generate-learning-reference` and the repository defaults. Research primary sources, save the reusable brief, and review every claim before delivery.
+
+Both:
+
+> Create a concise reference document and matching learning wallpaper about `<topic>`. Use `$generate-learning-reference`; derive both artifacts from one sourced topic brief and review the final image.
 
 ## Using the skills
 
-The folders follow the Codex `SKILL.md` convention. They can be invoked from this repository by an agent that can read local files, or copied/symlinked into that tool's personal skills directory when automatic discovery is preferred.
+The discoverable workflows live under `.agents/skills/` and follow the Codex `SKILL.md` convention. A fresh session in this repository can invoke them explicitly or match them from the request.
 
-The skills are deliberately minimal in this first scaffold. The next step is to refine the generation and review logic with real wallpaper examples rather than prematurely building a large provider abstraction.
+`AGENTS.md` supplies defaults so a fresh session can proceed without asking routine display, audience, style, or storage questions.
 
 ## Syncing the toolkit
 

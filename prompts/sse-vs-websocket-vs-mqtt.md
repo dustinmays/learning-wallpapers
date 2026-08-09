@@ -1,5 +1,10 @@
 # Real-time messaging: SSE vs WebSocket vs MQTT
 
+## Artifact
+
+- Type: wallpaper
+- Output filename: `outputs/sse-vs-websocket-vs-mqtt.png`
+
 ## Learning goal
 
 Help a software engineer who understands systems and DevOps—but is new to these protocols—build an intuitive mental model for when to choose Server-Sent Events, WebSocket, or MQTT.
@@ -11,7 +16,7 @@ Help a software engineer who understands systems and DevOps—but is new to thes
 - MQTT is a lightweight, broker-mediated publish/subscribe messaging protocol. Clients publish messages to named topics; the broker distributes them to clients with matching subscriptions.
 - MQTT delivery QoS levels are 0 “at most once,” 1 “at least once,” and 2 “exactly once.” MQTT also supports retained messages.
 - SSE and WebSocket are natural direct browser/server choices. MQTT is a natural fit for IoT, telemetry, many-to-many distribution, and clients on constrained or unreliable networks.
-- Sources: MDN Server-Sent Events, MDN WebSocket API, and the OASIS MQTT 5.0 standard.
+- Sources: [MDN Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), [MDN WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API), and the [OASIS MQTT 5.0 standard](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html).
 
 ## Exact text
 
